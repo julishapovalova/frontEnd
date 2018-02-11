@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .BShape
+        {
+            position: absolute;
+            background: yellow;
+            left: 0px;
+            top: 0px;
+            width: 0px;
+            height: 0px;
+        }
+
+        .BShape:focus {
+            position: absolute;
+            background: blue;
+        }
+    </style>
+
+    <script>
+        window.onmousedown = mDown;
+        window.onmouseup = mUp;
+
+        var p;
+        var k;
+        var count = 1;
+
+        function mDown(e) {
+            p = new Object();
+            p.x = e.x;
+            p.y = e.y;
+        }
+
+        function mUp(e) {
+            var node = document.createElement('div');
+            node.className = 'BShape';
+            node.tabIndex = ++count;
+            node.style.left = p.x + 'px';
+            node.style.top = p.y + 'px';
+            node.style.width = (e.x - p.x) + 'px';
+            node.style.height = (e.y - p.y) + 'px';
+            document.body.appendChild(node);
+            node.onmousemove = mDMove;
+            node.onmousedown = mDDown;
+        }
+
+        function mDDown(e) {
+            k = new Object();
+            k.x = e.x;
+            k.y = e.y;
+        }
+
+
+        function mDMove(e) {
+            if (e.buttons == 1) {
+                this.style.left = (this.offsetLeft + (e.x - k.x) + 'px');
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

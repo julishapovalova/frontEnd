@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<title>Калькулятор</title>
+<body>
+<p>Введите А</p>
+<input type="text" value="1" id="txt1">
+<p>Введите оператор</p>
+<input type="text" value="*" id="txt2">
+<p>Введите В</p>
+<input type="text" value="2" id="txt3">
+<input type="button" value="Посчитать" id="but1">
+<!--<input type="button" value="Hello" onclick="alert('My')">-->
+
+  <!--<script src="calcul.js"></script>-->
+  <script>
+  var a= Number(document.getElementById('txt1'));
+  var op=document.getElementById('txt2');
+  var b= Number(document.getElementById('txt3'));
+  function calulat(a,b, op)
+  {
+  var res;
+  switch(op)
+  {
+  case '+':
+	res=a+b;
+	break;
+  case '-':
+	res=a-b;
+	break;
+	case '*':
+		res=a*b;
+		break;
+	case '/':
+		if(a==0)
+			alert('error')
+		res=a/b;	
+		break;
+	}
+ return res;
+ }
+  document.getElementById('but1').onclick=alert("Привет")
+ 
+  </script>
+</body>
+</html>

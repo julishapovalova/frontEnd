@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyPaint</title>
+</head>
+<body>
+    <div>
+        <canvas id="canvas" width="800" height="600" style="border: solid"></canvas>
+    </div>
+    <script>
+    var canvas = document.getElementById('canvas');
+    var context;
+    var balls = [];
+    setInterval("drawFrame()", 80);
+        
+
+    function Ball(x, y) 
+    {
+        this.x = x;
+        this.y = y;
+        var mas = [-1,1];
+        this.dx = mas[Math.floor(Math.random()*mas.length)]*(Math.floor(Math.random()*5)+1);
+        this.dy = mas[Math.floor(Math.random()*mas.length)]*(Math.floor(Math.random()*5)+1);
+        this.radius = Math.floor(Math.random()*20)+10;
+        var colors = ["green", "blue", "red", "yellow", "#756391", "orange", "brown", "#09a4d1", "pink"];
+        var random = Math.floor(Math.random()*colors.length);
+        this.fillColor = colors[random];
+    }
+
+    function mouseClick() 
+    {
+        canvas.onclick = function(e)
+            {            
+                var check = false;
+                for(var i in balls)
+                {
+                    var ball = balls[i];
+
+                    // Проверка попадания
+                    if ((e.x > (ball.x-ball.radius)) && (e.x < (ball.x+ball.radius)))
+                        {
+                            if ((e.y > (ball.y-ball.radius)) && (e.y < (ball.y+ball.radius)))
+                            {
+                                balls.splice(i,1);
+                                check = true;
+                                return;
+                            }
+                        }
+                }
+                if(check == false)
+                        {
+                           // Создаем новый мячик
+                            var ball = new Ball(e.x,e.y);
+                            // Сохраняем его в массиве
+                            balls.push(ball);
+                             
+                        }
+                drawFrame();
+            }
+        
+    }
+
+    function drawFrame() 
+    {
+        context = canvas.getContext("2d");
+        // Очистить холст
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        // Вызываем метод beginPath(), чтобы убедиться,
+        // что мы не рисуем часть уже нарисованного содержимого холста
+        context.beginPath();
+        // Перебираем все мячики
+        for(var i=0; i<balls.length; i++) 
+        {
+            // Перемещаем каждый мячик в его новую позицию
+            var ball = balls[i];
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+            // Добавляем движение мячика
+            if ((ball.y) < canvas.height) ball.dy;
+            // Если мячик натолкнулся на край холста, отбиваем его
+            if ((ball.x + ball.radius > canvas.width) || (ball.x - ball.radius < 0)) 
+                {
+                    ball.dx = -ball.dx;
+                }
+            // Если мячик упал вниз, отбиваем его
+            if ((ball.y + ball.radius > canvas.height) || (ball.y - ball.radius < 0)) 
+                {
+                    ball.dy = -ball.dy;
+                }
+            context.beginPath();
+            context.fillStyle = ball.fillColor;
+            // Рисуем мячик
+            context.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2); 
+            context.fill();
+        }
+       
+    }
+    mouseClick();
+
+    </script>
+</body>
+</html>
