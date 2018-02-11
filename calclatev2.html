@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Calculate</title>
+    <!--<style type="text/css">
+        table {
+            width: 200px;
+            border-collapse: collapse;
+        }
+
+        input[type="text"] {
+            width: 200px;
+        }
+
+        input[type="button"] {
+            height: 20px;
+            width: 50px;
+        }
+    </style>-->
+    <body>
+        <script>
+            var a = "";
+            var b = "";
+            var op = "";
+            var tmp = "";
+            var flag = false;
+            var flag2 = false;
+            var flag3 = false;
+            var negative = "-";
+            var re1 = /\.{1}/;
+            var lastNum;
+            var LastOp;
+			
+            function clean() {
+                textBox1.value = '';
+                tmp = "";
+                str = "";
+            }
+			
+			
+            function Operator(operator1) {
+                op = operator1;
+                a = parseFloat(Form.textBox1.value);
+                textBox1.value ="";
+                tmp = '';
+                flag = false;
+            }
+			
+			
+            function getNegativeNumber() //нешативный знак 
+            {
+                switch (tmp.indexOf(negative, 0)) {
+                case -1:
+                    tmp = "-" + tmp;
+                    textBox1.value = "";
+                    textBox1.value = tmp;
+                    flag2 = true;
+                    break;
+                case 0:
+                    tmp = tmp.replace(/\-/, "");
+                    textBox1.value = "";
+                    textBox1.value = tmp;
+                    flag2 = false;
+                    break;
+                }
+            }
+			
+			
+            function CheckNumber(tmp) {
+                var check = tmp.length;
+                return check;
+            }
+			
+			
+            function Control() {
+                var control = 7;
+                var flag4 = true;
+                switch (flag4) {
+                case 1:
+                    flag4 = false;
+                    break;
+                case 0:
+                    if (flag3 == true)
+                        control += 1;
+                    if (flag2 == true)
+                        control += 1;
+                    if (flag2 == false)
+                        control -= 1;
+                    break;
+                }
+                return control;
+            }
+			
+			
+			
+            function GetFromTextBox() {
+                return parseFloat(Form.textBox1.value);
+            }
+			
+			function BackSpace()
+			{
+			var str = Form.textBox1.value;
+			        if (str.length>1)
+		    Form.textBox1.value=str.substring(0, str.length - 1);
+        else
+            Form.textBox1.value=0;
+			}
+			
+            function AddToText(str) {
+                if (flag) {
+                    clean();
+                    flag = false;
+                }
+                if (str == "+/-") {
+                    getNegativeNumber();
+                    str = "";
+                }
+                if (str == "." && re1.test(tmp) == true) {
+                    alert("Десятичная чать существует!");
+                    str = "";
+                    flag3 = true;
+                }
+                var num = CheckNumber(tmp);
+                var num2 = Control();
+                if (num <= num2) {
+                    tmp += str;
+                    textBox1.value += str;
+                } else {
+                    alert("8 разрядов уже есть");
+                }
+            }
+			
+            function ff() {
+                b = tmp;
+                lastOp = op;
+                var res = Calculate(a, b, lastOp);
+				Form.textBox1.value=+res.toFixed(7);//округление числа res до точности 7, + для целого
+                a=res;
+                tmp=b;
+                op=lastOp;
+                flag = true;
+            }
+			
+            function Calculate(a, b, op) {
+                var res = 0;
+                switch (op) {
+                case '+':
+                    res = parseFloat(a) + parseFloat(b);
+                    break;
+                case '-':
+                    res = parseFloat(a) - parseFloat(b);
+                    break;
+                case '*':
+                    res = parseFloat(a) * parseFloat(b);
+                    break;
+                case '/':
+                    if (b == 0) {
+                        alert("�� ������ �� 0!");
+                        break;
+                    }
+                    res = parseFloat(a) / parseFloat(b);
+                    break;
+                default:
+                    alert("Выберите оперцию и число!!");
+                    res = b;
+                    break;
+                }
+                return res;
+            }
+			
+        </script>
+        <h1>Calculate</h1>
+		
+        <form name="Form">
+            <table>
+                <tr algin="center">
+                    <td colspan="4">
+                        <input type="text" name="textBox1">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                                        <td>
+					<input type="button" name="btnBS" value="BackSpace" onclick='BackSpace()'>
+					</td>
+                    <td>
+                        <input type="button" name="btn7" value="7" onclick='AddToText("7")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn8" value="8" onclick='AddToText("8")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn9" value="9" onclick='AddToText("9")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btnMult" value="*" onclick='Operator("*")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btnDiv" value="/" onclick='Operator("/")'>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" name="btn4" value="4" onclick='AddToText("4")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn5" value="5" onclick='AddToText("5")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn6" value="6" onclick='AddToText("6")'>
+                    </td>
+                    <td colspan="2">
+                        <input type="button" name="btnMinus" value="-" onclick='Operator("-")'>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" name="btn1" value="1" onclick='AddToText("1")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn2" value="2" onclick='AddToText("2")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn3" value="3" onclick='AddToText("3")'>
+                    </td>
+                    <td rowspan="2">
+                        <input type="button" name="btnAr" value="+" onclick='Operator("+")'>
+                    </td>
+                    <td rowspan="2">
+                        <input type="button" name="btnEq" value="=" onclick=' ff()'>
+                    </td>
+                </tr>
+                <tr>
+
+					<td>
+                        <input type="button" name="btnClean" value="C" onclick='clean()'>
+                    </td>
+                    <td>
+                        <input type="button" name="btn0" value="0" onclick='AddToText("0")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btnP" value="." onclick='AddToText(".")'>
+                    </td>
+                    <td>
+                        <input type="button" name="btnPM" value="±" onclick='AddToText("+/-")'>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
