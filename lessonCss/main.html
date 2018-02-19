@@ -13,109 +13,122 @@
 		<div>
 			<img id="imgLogo" class ="page-header__img-logo"src="images/logo.png" alt="logo">
 		</div>
+		<h1 >MY FIRST SINGLE PAGE</h1>
 		<div class="nav-bar">
-			<h1 >MY FIRST SINGLE PAGE</h1>
+			<div class="nav-bar page-header__nav-bar">
+				<div class="link nav-bar__link-home">
+					<a class="link-home link__color-link" href="">HOME</a>
+				</div>
+				<div class="link nav-bar__link-form">
+					<a class="link-form link__color-link" href="">FORM</a>
+				</div>
+				<div class="link nav-bar__link-contacts">
+					<a class="link-contacts  link__color-link" href="NewFile.html">CONTACTS</a>
+				</div>
+			</div>
 		</div>
-		<div class="nav-bar page-header__nav-bar">
-			<div class="link nav-bar__link-home">
-				<a class="link-home link__color-link" href="">HOME</a>
-			</div>
-			<div class="link nav-bar__link-form">
-				<a class="link-form link__color-link" href="">FORM</a>
-			</div>
-			<div class="link nav-bar__link-contacts">
-				<a class="link-contacts  link__color-link" href="">CONTACTS</a>
-			</div>
-		</div>
+
 	</header>
 
 	<div class="container">
+		<div class="form">
+			<form class="main-form  container__form" action="">
+				<fieldset>
+					<legend>My Form</legend>
+					<div class="first-div">
+						<h3 class="first-div__title">First Part</h3>
+						<div class="first-div__elem">
+							<div>
+								<label for="name">Name*:</label>
+							</div>
+							<div>
+								<input type="text" id="name" placeholder="Enter your name..." required>
+							</div>
+						</div>
+						<div class="first-div__elem">
+							<div>
+								<label for="surname">Surname*:</label>
+							</div>
+							<div>
+								<input type="text" id="surname" placeholder="Enter your surname..." required>
+							</div>
+						</div>
+						<div class="first-div__elem">
+							<div>
+								<label for="age">Age*:</label>
+							</div>
+							<div>
+								<input type="text" id="age" placeholder="Enter your age..." required>
+							</div>
+						</div>
+						<div class="first-div__elem">
+							<div>
+								<label for="gender">Gender*:</label>
+							</div>
+							<div>
+								<label for="male">male</label>
+								<input type="radio" name="gender" id="male" required>
+							</div>
+							<div>
+								<label for="female">female</label>
+								<input type="radio" name="gender" id="female" required>
+							</div>
+						</div>
+					</div>
+					<div class="first-div">
+						<h3 class="first-div__title">Second Part</h3>
+						<div class="first-div__elem">
+							<div>
+								<label for="logo">Login*:</label>
+							</div>
+							<div>
+								<input type="text" id="login" placeholder="Enter your login..." required>
+							</div>
+						</div>
+						<div class="first-div__elem">
+							<div>
+								<label for="email">Email*:</label>
+							</div>
+							<div>
+								<input type="text" id="email" placeholder="Enter your email..." required>
+							</div>
+						</div>
+						<div class="first-div__elem">
+							<div>
+								<label for="password">Password*:</label>
+							</div>
+							<div>
+								<input type="text" id="password" placeholder="Enter your password..." required>
+							</div>
+						</div>
 
-		<form class="main-form  container__form" action="">
-			<fieldset>
-				<legend>My Form</legend>
-				<div class="first-div">
-					<h3 class="first-div__title">First Part</h3>
-					<div class="first-div__elem">
-						<div>
-							<label for="name">Name*:</label>
+						<div class="first-div__elem">
+							<div>
+								<label for="password2">Reapet password*:</label>
+							</div>
+							<div>
+								<input type="text" id="password2" placeholder="Enter your password..." required>
+							</div>
+						</div >
+						<div class="first-div__elem check">
+							<div>
+								<input type="checkbox" name="accept" id="accept">
+							</div>
+							<div><label for="accept" >Accept</label></div>
 						</div>
-						<div>
-							<input type="text" id="name" placeholder="Enter your name..." required>
+						<div class="first-div__elem">
+							<div class="button"><input type="submit" value="Submit"></div>
+							<div class="button"><input type="submit" value="Reset"></div>
+							<div class="button"><input type="submit" value="Cancel"></div>
 						</div>
-					</div>
-					<div class="first-div__elem">
-						<div>
-							<label for="surname">Surname*:</label>
-						</div>
-						<div>
-							<input type="text" id="surname" placeholder="Enter your surname..." required>
-						</div>
-					</div>
-					<div class="first-div__elem">
-						<div>
-							<label for="age">Age*:</label>
-						</div>
-						<div>
-							<input type="text" id="age" placeholder="Enter your age..." required>
-						</div>
-					</div>
-					<div class="first-div__elem">
-						<div>
-							<label for="gender">Gender*:</label>
-						</div>
-						<div>
-							<label for="male">male</label>
-							<input type="radio" name="gender" id="male" required>
-						</div>
-						<div>
-							<label for="female">female</label>
-							<input type="radio" name="gender" id="female" required>
-						</div>
-					</div>
-				</div>
-				<div class="first-div">
-					<h3>Second Part</h3>
-					<div class="first-div__elem">
-						<div>
-							<label for="logo">Login*:</label>
-						</div>
-						<div>
-							<input type="text" id="login" placeholder="Enter your login..." required>
-						</div>
-					</div>
-					<div class="first-div__elem">
-						<div>
-							<label for="email">Email*:</label>
-						</div>
-						<div>
-							<input type="text" id="email" placeholder="Enter your email..." required>
-						</div>
-					</div>
-					<div class="first-div__elem">
-						<div>
-							<label for="password">Password*:</label>
-						</div>
-						<div>
-							<input type="text" id="password" placeholder="Enter your password..." required>
-						</div>
-					</div>
-
-					<div class="first-div__elem">
-						<div>
-							<label for="password2">Reapet password*:</label>
-						</div>
-						<div>
-							<input type="text" id="password2" placeholder="Enter your password..." required>
-						</div>
-					</div>
-				</div>	
-			</fieldset>
-		</form>
-
+					</div>	
+				</fieldset>
+			</form>
+		</div>
+		<div class="line"></div>
 		<div class="main-table container__table">
 			<table>
-				<caption>Person</caption>
+				<caption><h3>Person</h3></caption>
 				<tr>
 					<td>ID</td>
 					<td>Fname</td>
