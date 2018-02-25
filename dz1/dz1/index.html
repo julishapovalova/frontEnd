@@ -2,35 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>dz1</title>
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-
-
-
-	<header class="page-header">
+<header class="page-header">
 		<div>
-			<img id="imgLogo" class ="page-header__img-logo"src="images/logo.png" alt="logo">
+	<img id="imgLogo" class ="page-header__img-logo"src="images/logo.png" alt="logo">
+</div>
+<h1 >MY FIRST SINGLE PAGE</h1>
+<div class="nav-bar">
+	<div class="nav-bar page-header__nav-bar">
+		<div class="link nav-bar__link-home">
+			<a class="link-home link__color-link" href="">HOME</a>
 		</div>
-		<h1 >MY FIRST SINGLE PAGE</h1>
-		<div class="nav-bar">
-			<div class="nav-bar page-header__nav-bar">
-				<div class="link nav-bar__link-home">
-					<a class="link-home link__color-link" href="">HOME</a>
-				</div>
-				<div class="link nav-bar__link-form">
-					<a class="link-form link__color-link" href="">FORM</a>
-				</div>
-				<div class="link nav-bar__link-contacts">
-					<a class="link-contacts  link__color-link" href="NewFile.html">CONTACTS</a>
-				</div>
-			</div>
+		<div class="link nav-bar__link-form">
+			<a class="link-form link__color-link" href="#tablePerson">FORM</a>
 		</div>
+		<div class="link nav-bar__link-contacts">
+			<a class="link-contacts  link__color-link" href="main.html">CONTACTS</a>
+		</div>
+	</div>
+</div>
 
 	</header>
 
-	<div class="container">
+		<div class="container">
 		<div class="form">
 			<form class="main-form  container__form" action="">
 				<fieldset>
@@ -66,12 +63,16 @@
 								<label for="gender">Gender*:</label>
 							</div>
 							<div>
-								<label for="male">male</label>
-								<input type="radio" name="gender" id="male" required>
+								 <label>
+    <input type="radio" class="option-input radio" name="gender" checked />
+    Male
+  </label>
 							</div>
 							<div>
-								<label for="female">female</label>
-								<input type="radio" name="gender" id="female" required>
+								 <label>
+    <input type="radio" class="option-input radio" name="gender" checked />
+    Female
+  </label>
 							</div>
 						</div>
 					</div>
@@ -111,21 +112,10 @@
 							</div>
 						</div >
 						<div class="first-div__elem check">
-<label class="container" for="accept">Accept
-  <input type="checkbox" checked="checked" id="accept">
-  <span class="checkmark"></span>
+						<label class="check__label">Accept
+  <input type="checkbox" checked="checked">
+  <span class="checkmark check__checkmark"></span>
 </label>
-
-
-
-
-
-
-							<div>
-								<input type="checkbox" name="accept" id="accept">
-								<span class="checkmark"></span>
-							</div>
-							<div><label for="accept" >Accept</label></div>
 						</div>
 						<div class="first-div__elem">
 							<div class="button"><input type="submit" value="Submit"></div>
@@ -137,16 +127,15 @@
 			</form>
 		</div>
 		<div class="line"></div>
-		<div class="main-table container__table">
-			<table>
-				<caption><h3>Person</h3></caption>
-				<tr>
+		<div class="main-table container__table" >
+			<table class="main-table__person person">
+				<caption class="person__label" id="tablePerson"><h3>Person</h3></caption>
+				<tr class="person__line">
 					<td>ID</td>
 					<td>Fname</td>
 					<td>Lname</td>
 					<td>Age</td>
 				</tr>
-
 				<tr>
 					<td>ID</td>
 					<td>Fname</td>
@@ -162,9 +151,10 @@
 			</table>
 		</div>
 	</div>
-	<footer class="page-footer">
-		<h3>Footer</h3>
-	</footer>
+
+
+<footer class="page-footer">
+  <p>Footer</p>
+</footer>
 </body>
-<script type="text/javascript"></script>
 </html>

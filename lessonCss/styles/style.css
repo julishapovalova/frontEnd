@@ -27,6 +27,14 @@ caption{
 	flex-shrink: 0;
 	flex-wrap: nowrap;
 }
+.checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
 
 .container{
 	display: flex;
