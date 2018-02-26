@@ -1,0 +1,9 @@
+.bordered {
+  background-color: #e1ffff;
+}
+.size-div {
+  float: left;
+  width: 300px;
+  height: 150px;
+  margin: 20px 20px 20px 20px;
+}
