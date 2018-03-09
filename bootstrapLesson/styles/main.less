@@ -1,0 +1,22 @@
+
+@base-color:rgb(110,27,255);
+@distance:60;
+@pink-color:spin(@base-color,@distance);
+@blue-color:spin(@base-color,@distance* -1);
+
+.row{
+.col-sm-2{
+	background-color: @base-color;
+}
+
+.col-sm-4{
+	background-color: @pink-color;
+}
+.col-sm-6{
+	background-color: @blue-color;
+}
+}
+
+
+
+
